@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    height: 100%;
+    position: relative;
+    border: 2px solid rgb(236, 176, 74);
+    transition: all 0.5s;
+
+}
+h6{
+    border-radius: 20px;
+}

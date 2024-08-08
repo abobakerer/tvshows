@@ -1,0 +1,43 @@
+<div class="container p-4 con1">
+  <div class="container p-1">
+    <h1>TV Shows</h1>
+    <div class="row m-5">
+      @for (tvshow of allShows; track $index) {
+      <div class="col-4 mb-3 p-3">
+        <a [routerLink]="['/details', tvshow.id]">
+          <div class="card" style="width: 90%">
+            <img
+              [src]="
+                'https://image.tmdb.org/t/p/original/' + tvshow.poster_path
+              "
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ tvshow.name }}</h5>
+              <p class="card-text">popularity {{ tvshow.popularity }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      }
+    </div>
+    <div class="btns">
+      <button
+        class="btn btn-warning btn-lg"
+        [disabled]="pg <= 1"
+        (click)="prevPg()"
+      >
+        prev
+      </button>
+      <p>{{ allData.page }}</p>
+      <button
+        class="btn btn-warning btn-lg"
+        [disabled]="pg >= totalpg"
+        (click)="nextPg()"
+      >
+        next
+      </button>
+    </div>
+  </div>
+</div>

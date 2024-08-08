@@ -1,0 +1,36 @@
+<div class="container p-5">
+  <div class="row justify-content-center">
+    <div class="col-5 align-self-start">
+      <div class="card" style="width: 80%">
+        <img
+          [src]="'https://image.tmdb.org/t/p/original/' + tv.poster_path"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ tv.name }}</h5>
+          <p class="card-text">popularity {{ tv.popularity }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-5 align-self-center bg-info p-4">
+      <h3 class="text-light">Overview</h3>
+      <h6 class="text-light m-2 bg-dark text-light p-3">{{ tv.overview }}</h6>
+      @if (tv.adult) {
+      <h3 class="text-danger">+16</h3>
+      }
+      <h3 class="text-light">Date</h3>
+      <h6 class="text-light m-2 bg-dark text-light p-3">
+        {{ tv.first_air_date }}
+      </h6>
+      <h3 class="text-light">Spoken Languages</h3>
+      @for (lan of tv.spoken_languages; track $index) {
+      <h6 class="text-light m-2 bg-dark text-light p-3">{{ lan.name }}</h6>
+      }
+      <h3 class="text-light">Type</h3>
+      <h6 class="text-light m-2 bg-dark text-light p-3">{{ tv.type }}</h6>
+      <h3 class="text-light">Seasons</h3>
+      <h6 class="text-light m-2 bg-dark text-light p-3">{{ seasons }}</h6>
+    </div>
+  </div>
+</div>
